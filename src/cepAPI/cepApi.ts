@@ -9,7 +9,7 @@ export class CepAPI extends RESTDataSource {
         this.baseURL = 'https://viacep.com.br';
     }
 
-    async getCEP(cep): Promise<Cep> {
-        return this.getCEP(`ws/${cep}/json`)
+    async getCep(cep): Promise<Cep> {
+        return this.get(`ws/${cep}/json`)
     }
 }

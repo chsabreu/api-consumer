@@ -4,10 +4,14 @@ import { AppService } from './app.service';
 import { ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloDriver } from '@nestjs/apollo/dist/drivers';
 import { GraphQLModule } from '@nestjs/graphql';
-import { CepAPI } from './data/CepAPI';
+import { CepAPI } from './cepAPI/cepApi';
+import { CepResolver } from './cepAPI/resolver';
+import { AdviceAPI } from './adviceAPI/adviceApi';
+import { AdviceResolver } from './adviceAPI/resolver';
 
 const dataSources = () => ({
-  cepAPI: new CepAPI()
+  cepAPI: new CepAPI(),
+  adviceAPI: new AdviceAPI()
 })
 
 @Module({
@@ -18,6 +22,6 @@ const dataSources = () => ({
     sortSchema: true
   })],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, CepAPI, CepResolver, AdviceAPI, AdviceResolver],
 })
 export class AppModule { }
