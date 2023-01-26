@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Resolver, Args, Context, Query } from '@nestjs/graphql';
 import { Cep } from './cep.entity';
 
-@Resolver('CEPs')
+@Resolver('CEP')
 @Injectable()
 export class CepResolver {
     constructor() { }
